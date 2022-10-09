@@ -20,11 +20,19 @@ ambiente = ambiente.astype(int)
 
 # Encontrar la posicion de la rata en el ambiente inicial
 def hallarPosicionRata():
+  count = 0
   for i in range(len(ambiente)):
     for j in range(len(ambiente[0])):
-      if(ambiente[i][j] == RATA):
-        return i,j
-  return None      
+      if ambiente[i][j] == RATA:
+        if count == 0:
+          first_i, first_j = i,j
+        count += 1
+  if count > 1:
+     raise Exception("No se permite que haya mas de una posicion para la rata")
+  elif count == 1:
+    return first_i, first_j
+  else:
+    raise Exception("Debe haber al menos una posicion para la rata")      
 
 
 """
