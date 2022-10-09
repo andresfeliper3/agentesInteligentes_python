@@ -69,7 +69,8 @@ rata = Rata(filaRata, columnaRata)
 # Ejecución automática según la tabla de decisión 
 # Se detiene si encuentra el queso o con un número máximo de movimientos
 counter = 0
-while not rata.tuvoExito and counter<=10: 
+MAX_MOVIMIENTOS = 10
+while not rata.tuvoExito and counter<=MAX_MOVIMIENTOS: 
   rata.definirMovimiento(ambiente, matrizDecision)
   rata.moverse(ambiente)
   print("Estado del ambiente", counter)
